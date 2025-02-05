@@ -93,10 +93,20 @@ This project is licensed under the [MIT License](LICENSE), which allows for modi
   - [GitHub](https://github.com/wrathfuldiety)
   - [LinkedIn](https://linkedin.com/in/hasanka-amarasinghe)
 
+
+## TODO
+
+- [ ] **Add URL List Support**: Allow the script to take in a list of URLs from a text file (e.g., `urls.txt`) to check multiple sites in one go. This will save time when you need to run the checks on several domains.
+- [ ] **Graceful Handling of Invalid URLs**: Improve error handling so that if an invalid URL is encountered in the list, it skips over it without crashing the whole process. It should notify you with a simple warning.
+- [ ] **Progress Bar**: Implement a progress bar or percentage indicator when scanning a list of URLs, so you have a sense of how much longer the process will take.
+- [ ] **Customizable Timeouts**: Let users set custom HTTP request timeouts to account for slow-loading websites or servers that might take longer to respond.
+- [ ] **Save Results in CSV/JSON**: Provide an option to save the scan results in different formats like CSV or JSON, making it easier to analyze or import the data into other tools.
+- [ ] **URL Validation**: Add checks to ensure the URLs are properly formatted before starting the scan, to avoid errors caused by malformed links.
+- [ ] **Parallel Processing**: Optimize the script to check multiple URLs at once using threading or parallel processing, especially when you have a large list of sites to scan.
+- [ ] **Better Output Customization**: Allow users to customize the output format (e.g., plain text, Markdown, or HTML) based on their preferences or reporting needs.
+- [ ] **CLI Arguments**: Add more flexibility by letting users pass in options through the command line—like specifying the timeout, the log file location, or the target URL—making the script more configurable and faster to use in different situations.
+
 ## Contributions
 
 Contributions are welcome! If you find a bug or would like to improve the project, feel free to fork the repository and submit a pull request.
-
-
-
 
