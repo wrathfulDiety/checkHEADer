@@ -50,7 +50,7 @@ This will check for the required dependencies and install them if needed. Ensure
 
 1. **Run the Script**: Run the script using the command:
     ```bash
-    python http_header_checker.py
+    python checkHEADer.py
     ```
 
 2. **Enter Target URL**: You will be prompted to enter the target URL, such as `https://example.com`.
