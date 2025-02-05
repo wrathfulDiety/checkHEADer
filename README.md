@@ -1,50 +1,67 @@
 # checkHEADer
+An automation script designed to streamline the process of checking HTTP headers for security issues, reducing manual effort during penetration testing, and saving time for critical findings.
+
+
 # HTTP Header Checker
 
 This Python script automates the process of checking important HTTP security headers on a given target URL. It ensures that necessary security headers are present and provides recommendations for any missing or misconfigured headers, helping to identify security misconfigurations and improve the security posture of web applications.
 
-## Features
+## Table of Contents
 
-- **Automatic Module Installation**: The script automatically installs the required Python modules (`requests`, `termcolor`, `tabulate`) if they are not already installed.
-- **Security Header Check**: Checks for various important HTTP security headers, including:
-  - `Content-Security-Policy`
-  - `X-XSS-Protection`
-  - `X-Content-Type-Options`
-  - `Strict-Transport-Security`
-  - `Cache-Control`
-  - `X-Frame-Options`
-  - `Referrer-Policy`
-  - `Permissions-Policy`
-  - `Expect-CT`
-  - `Access-Control-Allow-Origin`
-- **Log Generation**: Outputs the results of the header check into a timestamped log file for easy reference and reporting.
-- **Actionable Recommendations**: Provides recommendations for misconfigured or missing headers to enhance security.
-- **Loading Indicator**: A threaded loading animation displays while dependencies are being installed.
-- **Status Colorization**: The script uses colored output to highlight the status of each header (e.g., green for "Found", red for "Missing", yellow for warnings).
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Sample Output](#sample-output)
+- [TODO](#todo)
+- [License](#license)
 
-## Installation
+---
 
-This script does not require manual installation of dependencies. It automatically installs the required modules if they are missing.
+### Features
 
-To run the script, make sure Python is installed on your system. Then, simply clone or download the repository and execute the script.
+- **Automated HTTP Header Checks**: Automatically checks for a range of security headers, including `Content-Security-Policy`, `X-XSS-Protection`, `Strict-Transport-Security`, `Cache-Control`, and more.
+- **Header Issue Detection**: Flags missing or misconfigured headers with recommendations to improve security.
+- **Detailed Logging**: Logs each header check with status, warnings, and errors.
+- **Color-Coded Output**: Makes it easy to identify headers with issues using color-coded feedback.
+- **Security Header Checks**: Verifies important HTTP headers to prevent attacks like XSS, clickjacking, and MITM.
 
-## Usage
+---
 
-1. Clone or download the repository to your local machine.
+### Installation
 
-2. In your terminal, navigate to the project directory.
+The script automatically installs any missing dependencies. If necessary, it installs the required modules for you.
 
-3. Run the script using Python:
-
+1. Clone the repository:
     ```bash
-    python header_checker.py
+    git clone https://github.com/wrathfuldiety/HTTP-Header-Checker.git
+    cd HTTP-Header-Checker
     ```
 
-4. When prompted, enter the target URL (e.g., `https://www.example.com`).
+2. Run the script:
+    ```bash
+    python http_header_checker.py
+    ```
 
-5. The script will check the headers for the provided target URL and generate a log file with results. You will also see the results printed in the terminal, with color-coded status.
+This will check for the required dependencies and install them if needed. Ensure you have Python 3+ installed.
 
-Example output:
+---
+
+### Usage
+
+1. **Run the Script**: Run the script using the command:
+    ```bash
+    python http_header_checker.py
+    ```
+
+2. **Enter Target URL**: You will be prompted to enter the target URL, such as `https://example.com`.
+
+3. **View Results**: The script will check the relevant headers and display results directly in the terminal.
+
+4. **Check Logs**: The results will be saved in a log file named after the domain, including detailed status information about each header.
+
+---
+
+## Sample output:
 
 ```
 Checking headers for https://www.example.com
@@ -83,6 +100,21 @@ The script checks for the following security headers, which are recommended for 
   - `termcolor`
   - `tabulate`
 
+
+### TODO
+
+- [ ] **HTTP Verb Check**: Implement a function to detect unnecessary HTTP methods like `TRACE`, `OPTIONS`, and others, and flag them if they are enabled.
+- [ ] **Support for URL List**: Allow the script to accept a list of URLs from a text file (e.g., `urls.txt`), checking all the URLs in the file.
+- [ ] **Graceful Error Handling**: Enhance error handling to gracefully skip invalid URLs without crashing the script.
+- [ ] **Proxy Support**: Implement an option to route HTTP requests through a proxy server.
+- [ ] **Enhanced Logging**: Add more detailed and customizable logging to keep track of each step of the header checking process.
+- [ ] **Report Generation**: Generate summary reports of findings in CSV or PDF format for easier sharing with stakeholders.
+
+
+## Contributions
+
+Contributions are welcome! If you find a bug or would like to improve the project, feel free to fork the repository and submit a pull request.
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE), which allows for modification, distribution, and private use. You can find more information in the LICENSE file.
@@ -93,20 +125,4 @@ This project is licensed under the [MIT License](LICENSE), which allows for modi
   - [GitHub](https://github.com/wrathfuldiety)
   - [LinkedIn](https://linkedin.com/in/hasanka-amarasinghe)
 
-
-## TODO
-
-- [ ] **Add URL List Support**: Allow the script to take in a list of URLs from a text file (e.g., `urls.txt`) to check multiple sites in one go. This will save time when you need to run the checks on several domains.
-- [ ] **Graceful Handling of Invalid URLs**: Improve error handling so that if an invalid URL is encountered in the list, it skips over it without crashing the whole process. It should notify you with a simple warning.
-- [ ] **Progress Bar**: Implement a progress bar or percentage indicator when scanning a list of URLs, so you have a sense of how much longer the process will take.
-- [ ] **Customizable Timeouts**: Let users set custom HTTP request timeouts to account for slow-loading websites or servers that might take longer to respond.
-- [ ] **Save Results in CSV/JSON**: Provide an option to save the scan results in different formats like CSV or JSON, making it easier to analyze or import the data into other tools.
-- [ ] **URL Validation**: Add checks to ensure the URLs are properly formatted before starting the scan, to avoid errors caused by malformed links.
-- [ ] **Parallel Processing**: Optimize the script to check multiple URLs at once using threading or parallel processing, especially when you have a large list of sites to scan.
-- [ ] **Better Output Customization**: Allow users to customize the output format (e.g., plain text, Markdown, or HTML) based on their preferences or reporting needs.
-- [ ] **CLI Arguments**: Add more flexibility by letting users pass in options through the command line—like specifying the timeout, the log file location, or the target URL—making the script more configurable and faster to use in different situations.
-
-## Contributions
-
-Contributions are welcome! If you find a bug or would like to improve the project, feel free to fork the repository and submit a pull request.
 
